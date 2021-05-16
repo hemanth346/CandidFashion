@@ -20,7 +20,6 @@ Being able to recognize apparel products from pictures could enhance the shoppin
 
 - Masks of the apparel are available in run-length encoded format. Custom dataset class is created to decode the masks and load the images. 
 
-- All the images are resized to 480*720
 - Used albumentations library and below augmentation techniques are applied:
     - horizontal_flip (object positional invariance)
     - blur (quality invariance)
