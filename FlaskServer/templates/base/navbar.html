@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <img
+      src="{{url_for('static', filename='information/logo.png')}}"
+      height="72rem"
+      width="120rem"
+      style="padding-right: 3px"
+    />
+    <a class="navbar-brand" style="width: 6 rem" href="/">CandidFashion</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li {% if current_page == 'home' %}class="active"{% endif %}>
+          <a class="nav-link" href="/" title="home"
+            >Home</a
+          >
+        </li>
+
+        <li {% if current_page == 'about' %}class="active"{% endif %}>
+          <a class="nav-link" href="/about" title="about"
+            >About</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- prettier-ignore -->
+{% block script %}
+<script>
+  $(document).ready(function () {
+    $('li.active').removeClass('active');
+    $('a[href="' + location.pathname + '"]')
+      .closest('li')
+      .addClass('active');
+  });
+</script>
+{% endblock %}
