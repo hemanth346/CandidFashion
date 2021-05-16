@@ -1,0 +1,116 @@
+{%extends 'index.html' %}{% block content%}
+
+<script>
+  function showDiv() {
+    document.getElementById('loading').style.display = 'block';
+  }
+</script>
+
+<!-- prettier-ignore -->
+{% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+<div class="alert alert-info mt-4" role="alert">
+  <i class="fas fa-skull-crossbones"></i>
+  {{ message }}
+</div>
+{% endfor %} {% endif%} {% endwith %}
+
+<h4 style="padding-top: 20px">Run inference on your model</h4>
+<hr />
+
+<div
+  class="card shadow p-3 mb-5 bg-white rounded mx-auto text-center"
+  style="width: 34rem"
+>
+  <img
+    src="{{url_for('static', filename='information/inference.gif')}}"
+    class="card-img-top text-center"
+    style="width: 30vw"
+  />
+</div>
+
+<form class="mt-4" action="#" method="POST" enctype="multipart/form-data">
+  <div class="form-group col-6 mx-auto text-center">
+    <div class="input-group mb-3">
+      <div class="custom-file">
+        <input type="file" name="file" class="custom-file-input" id="inputGroupFile02">
+        <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+      </div>
+      <!-- <div class="input-group-append">
+        <span class="input-group-text" id="">Upload</span>
+      </div> -->
+    </div>
+
+    <!-- <div class="input-group mt-5">
+      <div class="input-group-prepend">
+        <span
+          class="input-group-text"
+          id="inputUser"
+          >Fashion Image</span
+        >
+      </div>
+      <input
+        type="file"
+        aria-label="name"
+        name="username"
+        class="form-control"
+        aria-describedby="inputUser"
+        required
+      />
+    </div> -->
+  </div>
+  <script>
+    $('#inputGroupFile02').on('change',function(){
+        //get the file name
+        var fileName = $(this).val();
+        //replace the "Choose a file" label
+        $(this).next('.custom-file-label').html(fileName);
+    })
+  </script>
+  <div class="form-row">
+    <div class="form-group col-12 mt-2 text-center">
+      <button class="bg-light"
+        type="submit"
+        class="btn btn-outline-primary"
+        href="inference"
+        onclick="showDiv()"
+      >
+        Begin Inference
+      </button>
+    </div>
+  </div>
+  <!-- <div class="form-row">
+    <div class="form-group col-12 text-center">
+      <div id="loading" style="display: none; padding-left: 10px">
+        <div class="spinner-border m-5" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- <div class="form-row">
+    <div class="form-group col-12 text-center">
+      <h4>Username: tanoshi-meera-985</h4>
+      <p>
+        The above username can be used to witness a demo of image classification
+        inference.
+      </p>
+      <p>
+        The dataset on which it is trained is a smaller version of tinyimagenet
+        and it contains 10 classes as mentioned below, with 105 images each.
+      </p>
+      <br />
+      <button type="button" class="btn btn-dark">crocodile</button>
+      <button type="button" class="btn btn-dark">crab</button>
+      <button type="button" class="btn btn-dark">penguin</button>
+      <button type="button" class="btn btn-dark">jellyfish</button>
+      <button type="button" class="btn btn-dark">duck</button>
+      <button type="button" class="btn btn-dark">sloth</button>
+      <button type="button" class="btn btn-dark">poodle</button>
+      <button type="button" class="btn btn-dark">fish</button>
+      <button type="button" class="btn btn-dark">seal</button>
+      <button type="button" class="btn btn-dark">spider</button>
+    </div> -->
+  </div>
+</form>
+
+ {% endblock %}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Bootstrap CDN -->
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{{url_for('static', filename='information/logo.png')}}"
+    />
+    {% include 'base/css.html' %} {% block css %}{% endblock %}
+    <title>CandidFashion</title>
+  </head>
+
+  <body>
+    <div id="particles-js"></div>
+    <div class="page-container" >
+    <!-- <div class="page-container bg-secondary text-white" > -->
+        <div class="content-wrap">
+        {% include 'base/navbar.html' %}
+        <div class="container">{% block content %}{% endblock %}</div>
+      </div>
+      {% include 'base/footer.html' %}
+    </div>
+    {% include 'base/js.html' %}
+    <!--prettier-ignore-->
+    {% block script %}{% endblock %}
+  </body>
+</html>
