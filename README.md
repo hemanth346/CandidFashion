@@ -8,7 +8,7 @@
 
 Being able to recognize apparel products from pictures could enhance the shopping experience for consumers. This project aim is to create a webapp that makes the apparel items, in given fashion image, available as separate image - ready to be able to search and buy online. Reverse Image search currently has to be done manually using platforms like [lykdat](https://lykdat.com/), but can be integrated as an api service. (Lykdat doesn't have an open APi, but has a twitter bot that can be used)
 
-
+### https://candid-fashion.herokuapp.com/
 
 ## Details:
 
